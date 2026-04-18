@@ -51,12 +51,14 @@ public class PaymentsPage extends AbstractComponent
 	 JavascriptExecutor js = (JavascriptExecutor) driver;
 	 selectCountry.click();
 	 selectCountry.sendKeys("India");
-	 india.click();
+	 js.executeScript("arguments[0].click();",  india);
+	 //india.click();
 	 //Actions actions = new Actions(driver);
 	 //actions.sendKeys(selectCountry,"India").build().perform();   
 	 waitForWebElementToclickable(placeOrder);
-	 placeOrder.click();
-	 //js.executeScript("arguments[0].click();",  placeOrder);
+	 //placeOrder.click();
+	 js.executeScript("arguments[0].click();",  placeOrder);
+	
 	
 	 
  }
