@@ -3,6 +3,7 @@ package AbstractComponents;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -53,7 +54,9 @@ public class AbstractComponent {
 	
 	public void clickOnCart () {
 		waitForWebElementToclickable(cartHeader);
-		cartHeader.click();
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();",  cartHeader);
+		//cartHeader.click();
 	}
 
 	public void waitForElementToDisappear(WebElement ele) throws InterruptedException

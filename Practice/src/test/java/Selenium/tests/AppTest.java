@@ -1,4 +1,4 @@
-package Selenium.Practice;
+package Selenium.tests;
 
 
 
@@ -10,9 +10,17 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
+
+import Selenium.Pageobjects.CartPage;
+import Selenium.Pageobjects.LandingPage;
+import Selenium.Pageobjects.OrderPage;
+import Selenium.Pageobjects.PaymentsPage;
+import Selenium.Pageobjects.ProductsCatalogue;
+
 import java.time.Duration;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -23,17 +31,19 @@ import static org.testng.Assert.assertFalse;
 /**
  * Unit test for simple App.
  */
-public class AppTest {
+public class AppTest extends BaseTest{
     /**
      * Rigorous Test :-)
      * @throws IOException 
+     * 
+     * 
      */
-   public static void main(String[] args) {
 	
-	   
-	   WebDriverManager.chromedriver().setup();
-	   WebDriver driver = new ChromeDriver();
-	   driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
+
+	@Test
+   public  void submitOrder(){
+
 	   LandingPage lp = new LandingPage(driver);
 	   lp.goTo();
 	   lp.loginToApplication("gschandru91@gmail.com", "Rahul@1991");
@@ -47,7 +57,7 @@ public class AppTest {
 	   pp.placeOrder();
 	   OrderPage op = new OrderPage (driver);
 	   List<WebElement> orderlist = op.collectAllProducts();
-	   assertFalse(orderlist.containsAll(productList), "Not all values from productlist are in orderList");
+	  assertTrue(orderlist.containsAll(productList), "Not all values from productlist are in orderList");
 	    
 	   
 	  

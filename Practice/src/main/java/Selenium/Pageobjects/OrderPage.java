@@ -1,4 +1,4 @@
-package Selenium.Practice;
+package Selenium.Pageobjects;
 
 
 import java.time.Duration;

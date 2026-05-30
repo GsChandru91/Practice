@@ -1,4 +1,4 @@
-package Selenium.Practice;
+package Selenium.Pageobjects;
 
 
 import java.time.Duration;
@@ -49,8 +49,9 @@ public class PaymentsPage extends AbstractComponent
 	 
 	 waitForWebElementToAppear(selectCountry);
 	 JavascriptExecutor js = (JavascriptExecutor) driver;
-	 selectCountry.click();
-	 selectCountry.sendKeys("India");
+	 js.executeScript("arguments[0].click();",  selectCountry);
+	 js.executeScript("arguments[0].value='India';", selectCountry);
+	 selectCountry.sendKeys(Keys.BACK_SPACE);
 	 js.executeScript("arguments[0].click();",  india);  
 	 waitForWebElementToclickable(placeOrder);
 	 js.executeScript("arguments[0].click();",  placeOrder);

@@ -3,11 +3,12 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Selenium.Practice.AppTest">
+      <class name="Selenium.tests.AppTest">
         <methods>
-          <include name="Test1"/>
+          <include name="submitOrder"/>
+          <include name="initializeDriver"/>
         </methods>
-      </class> <!-- Selenium.Practice.AppTest -->
+      </class> <!-- Selenium.tests.AppTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
